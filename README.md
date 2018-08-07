@@ -1,24 +1,15 @@
-# README
+# RAILSBOOK
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Application created as a part of The Odin Project Rails course.
 
-Things you may want to cover:
+[TOP lesson link](https://www.theodinproject.com/courses/ruby-on-rails/lessons/final-project)
 
-* Ruby version
+This is facebook-like application.
 
-* System dependencies
+Things app should contain (according to TOP instruction:
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Users - registering, showing profile etc.
+* Friends - adding friends, removing, accepting and rejecting requests.
+* Posts - writing new posts, viewing etc.
+* Comments - commenting posts.
+* Dashboard - new posts from friends etc.
