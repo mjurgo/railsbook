@@ -11,8 +11,10 @@
 
     = render 'shared/navbar'
 
-    - if !flash.empty?
-      - flash.each do |key, value|
-        = content_tag :div, value, class: "flash #{key}"
+    .container
 
-    = yield
+      - if !flash.empty?
+        - flash.each do |key, value|
+          = content_tag :div, value, class: "flash #{key}"
+
+      = yield
