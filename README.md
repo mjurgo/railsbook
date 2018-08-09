@@ -6,7 +6,7 @@ Application created as a part of The Odin Project Rails course.
 
 This is facebook-like application.
 
-Things app should contain (according to TOP instruction:
+Things app should contain (according to TOP instruction):
 
 * Users - registering, showing profile etc.
 * Friends - adding friends, removing, accepting and rejecting requests.
