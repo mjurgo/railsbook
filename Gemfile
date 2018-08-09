@@ -57,3 +57,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'haml-rails', '~> 1.0'
 gem 'devise', '~> 4.4', '>= 4.4.3'
 gem 'figaro', '~> 1.1', '>= 1.1.1'
+gem 'bootstrap', '~> 4.1', '>= 4.1.3'
+gem 'jquery-rails', '~> 4.3', '>= 4.3.3'
