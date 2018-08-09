@@ -15,16 +15,33 @@ class User < ApplicationRecord
   has_many :pending_friends, -> { where(friendships: { confirmed: false }) }, through: :friendships, source: :friend
   has_many :requested_friendships, -> { where(friendships: { confirmed: false }) }, through: :received_friendships, source: :user
 
-  # Returns all friends
+  has_many :likes, dependent: :destroy
+  has_many :liked_posts, through: :likes, source: :post
 
+  # Returns all friends
   def friends
     active_friends | received_friends
   end
 
   # Returns invites
-
   def pending
     pending_friends | requested_friendships
+  end
+
+  # Creates a new like row with post_id and user_id
+  def like!(post)
+    self.likes.create!(post_id: post.id)
+  end
+
+  # Destroys a like with matching post_id and user_id
+  def dislike!(post)
+    like = self.likes.find_by(post_id: post.id)
+    like.destroy!
+  end
+
+  # Returns true if post is liked by user
+  def like?(post)
+    self.likes.find_by(post_id: post.id) ? true : false
   end
 
 end
