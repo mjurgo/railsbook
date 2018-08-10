@@ -18,6 +18,10 @@ class User < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :liked_posts, through: :likes, source: :post
 
+  def name
+    "#{first_name} #{last_name}"
+  end
+
   # Returns all friends
   def friends
     active_friends | received_friends

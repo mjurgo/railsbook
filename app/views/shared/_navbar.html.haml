@@ -1,21 +1,21 @@
-%nav.navbar.navbar-expand-md.navbar-dark.bg-dark.mb-4
+%nav.navbar.navbar-expand-md.navbar-dark.mb-4
   .container
     %a.navbar-brand{:href => root_path } RAILSBOOK
     %button.navbar-toggler{"aria-controls" => "navbarCollapse", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarCollapse", "data-toggle" => "collapse", :type => "button"}
       %span.navbar-toggler-icon
     #navbarCollapse.collapse.navbar-collapse
       %ul.navbar-nav.mr-auto
-        %li.nav-item.active
-          %a.nav-link{:href => root_path }
-            Home
-            %span.sr-only (current)
         %li.nav-item
-          %a.nav-link{:href => users_path } Users
+          = link_to "Users", users_path, class: 'nav-link'
+      %ul.navbar-nav.ml-auto
         - if user_signed_in?
-          %li.nav-item
-            = link_to "Edit profile", edit_user_registration_path, class: 'nav-link'
-          %li.nav-item
-            = link_to "Logout", destroy_user_session_path, method: :delete, class: 'nav-link'
+          %li.nav-item.dropdown
+            %a#dropdown01.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle"   => "dropdown", :href => "https://example.com"}
+              = current_user.name
+            .dropdown-menu{"aria-labelledby" => "dropdown01"}
+              = link_to "Profile", current_user, class: 'dropdown-item'
+              = link_to "Edit profile", edit_user_registration_path, class: 'dropdown-item'
+              = link_to "Logout", destroy_user_session_path, method: :delete, class: 'dropdown-item'
         - else
           %li.nav-item
             = link_to "Register", new_user_registration_path, class: 'nav-link'

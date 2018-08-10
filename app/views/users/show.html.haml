@@ -1,1 +1,19 @@
-= @user.inspect
+.user-profile
+  .row
+    .col-md-3
+      = gravatar_for @user, size: 160
+      %br
+      %h4= @user.name
+      .row
+        .col-md-4
+          = "Residence:"
+        .col-md-6
+          = @user.residence
+      .row
+        .col-md-4
+          = "Birthday:"
+        .col-md-6
+          = birthday_formatted @user
+    .col-md-5
+      %h2.font-weight-bold Posts
+      = render @user.posts, max_length: 250

@@ -4,4 +4,6 @@ class Post < ApplicationRecord
   has_many :comments, as: :commentable, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :liking_users, through: :likes, source: :user
+
+  validates :content, length: { maximum: 4500 }
 end
