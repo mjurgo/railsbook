@@ -1,36 +1,52 @@
-%h2
-  Edit #{resource_name.to_s.humanize}
-= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
-  = devise_error_messages!
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
+= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: 'form-signin' }) do |f|
+  %h2
+    Edit #{resource_name.to_s.humanize}
+    = devise_error_messages!
+  .row
+    .col-md-6
+      .form-group
+        = f.label :email
+        = f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control'
+    .col-md-6
+      .form-group
+        = f.label :username
+        = f.text_field :username, autocomplete: 'off', class: 'form-control' 
+  .row
+    .col-md-6
+      .form-group
+        = f.label :first_name
+        = f.text_field :first_name, autocomplete: 'off', class: 'form-control'
+    .col-md-6
+      .form-group
+        = f.label :last_name
+        = f.text_field :last_name, autocomplete: 'off', class: 'form-control'
+  .row
+    .col-md-6
+      .form-group
+        = f.label :residence
+        = f.text_field :residence, autocomplete: 'off', class: 'form-control'
+    .col-md-6
+      .form-group
+        = f.label :birthday
+        = f.date_field :birthday, autocomplete: 'off', class: 'form-control'
+    
   - if devise_mapping.confirmable? && resource.pending_reconfirmation?
     %div
       Currently waiting confirmation for: #{resource.unconfirmed_email}
-  .field
+  .form-group
     = f.label :password
     %i (leave blank if you don't want to change it)
     %br/
-    = f.password_field :password, autocomplete: "off"
-    - if @minimum_password_length
-      %br/
-      %em
-        = @minimum_password_length
-        characters minimum
-  .field
+    = f.password_field :password, autocomplete: "off", class: 'form-control'
+  .form-group
     = f.label :password_confirmation
     %br/
-    = f.password_field :password_confirmation, autocomplete: "off"
+    = f.password_field :password_confirmation, autocomplete: "off", class: 'form-control'
   .field
     = f.label :current_password
     %i (we need your current password to confirm your changes)
     %br/
-    = f.password_field :current_password, autocomplete: "off"
+    = f.password_field :current_password, autocomplete: "off", class: 'form-control'
   .actions
-    = f.submit "Update"
-%h3 Cancel my account
-%p
-  Unhappy? #{button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete}
-= link_to "Back", :back
+    = f.submit "Update", class: 'btn btn-primary'
+  = link_to "Back", :back

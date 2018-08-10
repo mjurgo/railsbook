@@ -11,3 +11,13 @@
             %span.sr-only (current)
         %li.nav-item
           %a.nav-link{:href => users_path } Users
+        - if user_signed_in?
+          %li.nav-item
+            = link_to "Edit profile", edit_user_registration_path, class: 'nav-link'
+          %li.nav-item
+            = link_to "Logout", destroy_user_session_path, method: :delete, class: 'nav-link'
+        - else
+          %li.nav-item
+            = link_to "Register", new_user_registration_path, class: 'nav-link'
+          %li.nav-item
+            = link_to "Login", new_user_session_path, class: 'nav-link'

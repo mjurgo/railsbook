@@ -1,21 +1,57 @@
-%h2 Sign up
-= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+= form_for(resource, html: {class: 'form-signin'},  as: resource_name, url: registration_path(resource_name)) do |f|
+  %h2 Register
   = devise_error_messages!
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
+
+  .row
+    .col-md-6
+      .form-group
+        = f.label :email
+        = f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control'
+    .col-md-6
+      .form-group
+        = f.label :username
+        = f.text_field :username, autocomplete: 'off', class: 'form-control'  
+  .row
+    .col-md-6
+      .form-group
+        = f.label :first_name
+        = f.text_field :first_name, autocomplete: 'off', class: 'form-control'
+    .col-md-6
+      .form-group
+        = f.label :last_name
+        = f.text_field :last_name, autocomplete: 'off', class: 'form-control'
+  .row
+    .col-md-6
+      .form-group
+        = f.label :residence
+        = f.text_field :residence, autocomplete: 'off', class: 'form-control'
+    .col-md-6
+      .form-group
+        = f.label :birthday
+        = f.date_field :birthday, autocomplete: 'off', class: 'form-control'
+  .form-group
     = f.label :password
-    - if @minimum_password_length
-      %em
-        (#{@minimum_password_length} characters minimum)
-    %br/
-    = f.password_field :password, autocomplete: "off"
-  .field
+    = f.password_field :password, autocomplete: "off", class: 'form-control'
+  .form-group
     = f.label :password_confirmation
-    %br/
-    = f.password_field :password_confirmation, autocomplete: "off"
+    = f.password_field :password_confirmation, autocomplete: "off", class: 'form-control'
   .actions
-    = f.submit "Sign up"
-= render "devise/shared/links"
+    = f.submit "Register", class: 'btn btn-primary'
+
+  = render "devise/shared/links"
+
+-# <form class="form-signin">
+-#       <img class="mb-4" src="../../assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+-#       <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+-#       <label for="inputEmail" class="sr-only">Email address</label>
+-#       <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+-#       <label for="inputPassword" class="sr-only">Password</label>
+-#       <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+-#       <div class="checkbox mb-3">
+-#         <label>
+-#           <input type="checkbox" value="remember-me"> Remember me
+-#         </label>
+-#       </div>
+-#       <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+-#       <p class="mt-5 mb-3 text-muted">&copy; 2017-2018</p>
+-#     </form>
