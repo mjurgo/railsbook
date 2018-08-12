@@ -27,6 +27,16 @@ class User < ApplicationRecord
     active_friends | received_friends
   end
 
+  # Returns true if user is friends with given user, otherwise false
+  def friends_with?(user)
+    friends.include?(user)
+  end
+
+  # Returns Friendship object with given user
+  def friendship_with(user)
+    Friendship.where("user_id = ? OR friend_id = ?", user.id, user.id).first
+  end
+
   # Returns invites
   def pending
     pending_friends | requested_friendships

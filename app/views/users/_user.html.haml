@@ -1,0 +1,29 @@
+-# .user-partial.py-3
+-#   .card
+-#     .row
+-#       .col-md-4
+-#         =image_tag(gravatar_url(user), class: 'w-100')
+-#       .col-md-8.px-3
+-#         %h4.card-title= link_to user.name, user
+-#         %p.card-text
+-#           = birthday_formatted user
+-#           = user.residence
+
+
+.col-sm-6
+  .user-partial
+    .row
+      .col-md-3
+        = gravatar_for user, size: 80
+      .col-md-5
+        .size-80= link_to user.name, user
+        .size-80= user.residence
+        .size-80= birthday_formatted user
+      .col-md-4
+        - if current_user.friends_with?(user)
+          = button_to 'Delete friend', friendship_path(id: current_user.friendship_with(user).id), method: :delete, class: 'btn button-primary'
+        - elsif current_user.pending.include?(user)
+          = "Requested friendship"
+        - else
+          = button_to 'Add friend', friendships_path(friend_id: user), method: :post, class: 'btn button-primary' unless user.eql?(current_user)
+  %hr

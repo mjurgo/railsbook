@@ -1,4 +1,5 @@
 @import "bootstrap";
+@import url('https://fonts.googleapis.com/css?family=Hanalei+Fill');
 
 // VARIABLES
 
@@ -12,6 +13,11 @@ $primary-color: #ad2a2a;
   font-size: 80%;
 }
 
+.button-primary {
+  background-color: $primary-color;
+  color: #ffffff;
+}
+
 
 /////////////////////
 
@@ -22,6 +28,10 @@ body {
 
 .navbar {
   background-color: $primary-color;
+
+  .navbar-brand {
+    font-family: 'Hanalei Fill', cursive;
+  }
 }
 // Forms
 
@@ -62,6 +72,14 @@ body {
 
 img {
   margin-bottom: 10px;
+}
+
+// USER PARTIAL
+
+.user-partial {
+  .card {
+    width: 13rem;
+  }
 }
 
 
