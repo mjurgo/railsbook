@@ -13,7 +13,7 @@ class FriendshipsController < ApplicationController
 
   def update
     @friendship = Friendship.find_by(id: params[:id])
-    @friendship.update(status: "accepted")
+    @friendship.update(confirmed: true)
     if @friendship.save
       redirect_to root_url, notice: "Successfully confirmed friend!"
     else

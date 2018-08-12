@@ -1,0 +1,10 @@
+%li.nav-item.dropdown
+  %a#dropdown01.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle"   => "dropdown", :href => "https://example.com"}
+    Notifications
+  .dropdown-menu{"aria-labelledby" => "dropdown01"}
+    - user.friendship_requests.each do |request|
+      .dropdown-item
+        = link_to request.user.name, request.user
+        |
+        = link_to "Accept", friendship_path(id: request.id), method: :put, class: 'text-success'
+        = link_to "Decline", friendship_path(id: request.id), method: :delete, class: 'text-danger'

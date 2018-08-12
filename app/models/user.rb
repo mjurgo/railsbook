@@ -42,6 +42,11 @@ class User < ApplicationRecord
     pending_friends | requested_friendships
   end
 
+  # Returns received friendship requests
+  def friendship_requests
+    Friendship.where(friend_id: id, confirmed: false)
+  end
+
   # Creates a new like row with post_id and user_id
   def like!(post)
     self.likes.create!(post_id: post.id)
