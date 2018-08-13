@@ -1,0 +1,4 @@
+- if current_user.like?(post)
+  = link_to (fa_icon "thumbs-down", class: 'fa-2x'), dislike_path(post_id: post.id), remote: true, method: :delete
+- else
+  = link_to (fa_icon "thumbs-up", class: 'fa-2x'), like_path(post_id: post.id), remote: true, method: :post

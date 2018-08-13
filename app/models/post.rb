@@ -6,4 +6,8 @@ class Post < ApplicationRecord
   has_many :liking_users, through: :likes, source: :user
 
   validates :content, length: { maximum: 4500 }
+
+  def likes_count
+    likes.count
+  end
 end
