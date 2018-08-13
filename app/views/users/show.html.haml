@@ -17,3 +17,12 @@
     .col-md-5
       %h2.font-weight-bold Posts
       = render @user.posts, max_length: 250
+    .col-md-4
+      %h2.font-weight-bold Friends
+      .row
+        - @user.friends.each do |friend|
+          .col-md-4.user-friend
+            = gravatar_for friend
+            %p.size-80= link_to friend.name, friend
+        
+          

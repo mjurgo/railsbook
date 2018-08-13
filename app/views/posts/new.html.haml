@@ -1,0 +1,6 @@
+= form_for @post, html: {class: 'form-signin post-form'} do |f|
+  %h2 New post
+  = f.label :content, class: 'sr-only'
+  = f.text_area :content, rows: 13, cols: 50, class: 'form-control'
+
+  = f.submit "Post", class: 'btn btn-primary'
