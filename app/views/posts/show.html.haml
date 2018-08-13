@@ -1,2 +1,8 @@
-.col-md-6.offset-3
-  = render @post, max_length: 4500
+.row
+  .col-md-6
+    = render @post, max_length: 4500
+  .col-md-6
+    %h2.font-weight-bold Comments
+    = render 'comments/form', commentable: @post
+    %hr
+    = render @post.comments

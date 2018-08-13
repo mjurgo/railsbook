@@ -15,9 +15,9 @@ class FriendshipsController < ApplicationController
     @friendship = Friendship.find_by(id: params[:id])
     @friendship.update(confirmed: true)
     if @friendship.save
-      redirect_to root_url, notice: "Successfully confirmed friend!"
+      redirect_to posts_path, notice: "Successfully confirmed friend!"
     else
-      redirect_to root_url, notice: "Sorry! Could not confirm friend!"
+      redirect_to posts_path, notice: "Sorry! Could not confirm friend!"
     end
   end
 

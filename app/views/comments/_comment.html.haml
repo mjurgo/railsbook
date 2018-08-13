@@ -1,0 +1,7 @@
+.row.comment
+  .col-md-2
+    = gravatar_for comment.author, size: 60
+  .col-md-9.comment-content
+    %span.font-weight-bold= link_to comment.author.name, comment.author
+    = comment.content
+    .size-70= comment.created_at.strftime("on %m/%d/%Y")

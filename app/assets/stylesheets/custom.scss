@@ -9,6 +9,10 @@ $primary-color: #ad2a2a;
   font-size: 50%;
 }
 
+.size-70 {
+  font-size: 70%;
+}
+
 .size-80 {
   font-size: 80%;
 }
@@ -16,6 +20,11 @@ $primary-color: #ad2a2a;
 .button-primary {
   background-color: $primary-color;
   color: #ffffff;
+}
+
+.header-primary {
+  color: $primary-color;
+  font-weight: bold;
 }
 
 
@@ -99,4 +108,16 @@ img {
 
 .post-partial {
   margin-bottom: 10px;
+}
+
+// COMMENTS
+
+.comment {
+  margin-top: 10px;
+
+  .comment-content {
+    background-color: #ffffff;
+    border-radius: 20px;
+    border: 1px solid #b0b0b0;
+  }
 }
